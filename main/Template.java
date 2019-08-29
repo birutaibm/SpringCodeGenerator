@@ -92,11 +92,6 @@ public enum Template {
   private Template(String subPack, String ... texts) {
     this.subPack = subPack;
     this.texts = texts;
-    variables = new HashMap<>();
-  }
-
-  public void set(String variable, String value) {
-    variables.put(variable, value);
   }
 
   public String toString(Map<String, String> variables) {
@@ -105,7 +100,7 @@ public enum Template {
       .append('.')
       .append(subPack)
       .append(";\n")
-      .append(text[0]);
+      .append(texts[0]);
     for (int i = 1; i < texts.length; i+=2) {
       str.append(variables.get(texts[i]));
       str.append(texts[i+1]);

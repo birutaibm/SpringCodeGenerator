@@ -1,12 +1,13 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Test {
   private String root = "assabi";
-  private List<Template> templates;
+  private List<Template> templates = new ArrayList<>();
 
   public Map<String, String> mapFor(String Name) {
     Map<String, String> map = new HashMap<>();
@@ -25,6 +26,8 @@ public class Test {
     self.templates.add(Template.DAO);
     self.templates.add(Template.CTRL);
     self.templates.add(Template.Entity);
-    self.templates.forEach(temp -> temp.toString(self.mapFor("Stakeholder")));
+    self.templates.stream()
+      .map(temp -> temp.toString(self.mapFor("Stakeholder")))
+      .forEach(System.out::println);
   }
 }
