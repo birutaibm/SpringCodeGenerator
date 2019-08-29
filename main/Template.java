@@ -26,7 +26,7 @@ public enum Template {
     "Name",
     "Ctrl.class).all()).withRel(\"/",
     "name",
-    "));\n\t}\n\n}"),
+    "\"));\n\t}\n\n}"),
   /**
    * Has the variables "entityFull", "Name"
    */
@@ -50,7 +50,7 @@ public enum Template {
     "resourceFull",
     ";\n\n@RestController\n@RequestMapping(\"/",
     "name",
-    ")\npublic class ",
+    "\")\npublic class ",
     "Name",
     "Ctrl {\n\tprivate final ",
     "Name",
