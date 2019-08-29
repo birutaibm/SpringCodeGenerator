@@ -7,7 +7,7 @@ public enum Template {
   /**
    * Has the variables "ctrlFull", "entityFull", "Name", "name"
    */
-  Resource("resource",
+  Resource("resource", "ResourceAssembler",
     "\nimport static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;\nimport static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;\n\nimport org.springframework.hateoas.Resource;\nimport org.springframework.hateoas.ResourceAssembler;\nimport org.springframework.stereotype.Component;\n\nimport ",
     "ctrlFull",
     ";\nimport ",
@@ -30,7 +30,7 @@ public enum Template {
   /**
    * Has the variables "entityFull", "Name"
    */
-  DAO("dao",
+  DAO("dao", "Repository",
     "\nimport org.springframework.data.jpa.repository.JpaRepository;\n\nimport ",
     "entityFull",
     ";\n\npublic interface ",
@@ -41,7 +41,7 @@ public enum Template {
   /**
    * Has the variables "daoFull", "entityFull", "resourceFull", "Name", "name"
    */
-  CTRL("controllers",
+  CTRL("controllers", "Ctrl",
     "\nimport static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;\nimport static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;\n\nimport java.util.List;\nimport java.util.stream.Collectors;\n\nimport org.springframework.hateoas.Resource;\nimport org.springframework.hateoas.Resources;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport ",
     "daoFull",
     ";\nimport ",
@@ -79,7 +79,7 @@ public enum Template {
     "\"));\n\t\treturn assembler.toResource(",
     "name",
     ");\n\t}\n}"),
-  Entity("entity",
+  Entity("entity", "",
     "\nimport javax.persistence.Entity;\nimport javax.persistence.GeneratedValue;\nimport javax.persistence.Id;\n\nimport lombok.Data;\n\n@Data\n@Entity\npublic class "
     ,"Name",
     " {\n\t@Id\n\t@GeneratedValue\n\tprivate Long id;\n\tprivate String name;\n\n\tpublic ",
@@ -88,9 +88,11 @@ public enum Template {
 
   private final String[] texts;
   public final String subPack;
+  public final String nameComplement;
 
-  private Template(String subPack, String ... texts) {
+  private Template(String subPack, String nameComplement, String ... texts) {
     this.subPack = subPack;
+    this.nameComplement = nameComplement;
     this.texts = texts;
   }
 
