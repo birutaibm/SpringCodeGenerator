@@ -1,6 +1,5 @@
 package main;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public enum Template {
@@ -16,7 +15,9 @@ public enum Template {
     "Name",
     "ResourceAssembler implements ResourceAssembler<",
     "Name",
-    ", Resource<","name",">> {\n\n\t@Override\n\tpublic Resource<",
+    ", Resource<",
+    "Name",
+    ">> {\n\n\t@Override\n\tpublic Resource<",
     "Name",
     "> toResource(",
     "Name",
@@ -39,7 +40,7 @@ public enum Template {
     "Name",
     ", Long> {\n\n}"),
   /**
-   * Has the variables "daoFull", "entityFull", "resourceFull", "Name", "name"
+   * Has the variables "description", "url", "daoFull", "entityFull", "resourceFull", "Name", "name"
    */
   CTRL("controllers", "Ctrl",
     "\nimport static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;\nimport static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;\n\nimport java.util.List;\nimport java.util.stream.Collectors;\n\nimport org.springframework.hateoas.Resource;\nimport org.springframework.hateoas.Resources;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport ",
@@ -49,7 +50,7 @@ public enum Template {
     ";\nimport assabi.exceptions.EntityNotFoundException;\nimport ",
     "resourceFull",
     ";\n\n@RestController\n@RequestMapping(\"/",
-    "name",
+    "url",
     "\")\npublic class ",
     "Name",
     "Ctrl {\n\tprivate final ",
@@ -75,7 +76,7 @@ public enum Template {
     " ",
     "name",
     " = repository.findById(id).orElseThrow(EntityNotFoundException.supplier(id, \"",
-    "name",
+    "description",
     "\"));\n\t\treturn assembler.toResource(",
     "name",
     ");\n\t}\n}"),
